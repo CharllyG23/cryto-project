@@ -1,0 +1,22 @@
+.crytoList{
+  &-container{
+    @apply  bg-gray-100 w-full items-start justify-center pb-8;
+
+    h1{
+        @apply text-3xl text-slate-800 font-bold text-center justify-center pt-9;
+    }
+    &-content{
+        @apply px-12 py-20 max-w-7xl m-auto w-full;
+
+        &-items {
+            @apply grid sm:grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-x-10 gap-y-10;
+        }
+    }
+    &-button {
+        @apply inline-flex items-center justify-center;
+        button{
+            @apply w-40 h-14 bg-slate-900 cursor-pointer text-white text-lg font-semibold rounded-lg;
+        }
+    }
+  }
+}

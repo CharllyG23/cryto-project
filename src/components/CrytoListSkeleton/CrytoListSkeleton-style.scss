@@ -1,0 +1,25 @@
+.crytoListSkeleton{
+    @apply w-full p-5 relative max-w-[300px] justify-center items-center rounded-2xl bg-slate-200 animate-pulse;
+
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 2) infinite;
+
+    @keyframes pulse {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: .5;
+        }
+      }
+
+    &-info {
+        @apply w-full flex flex-col justify-end space-y-5 items-center;
+    
+        &--title {
+         @apply w-1/2 h-5 rounded-md bg-slate-300;
+        }
+        &--title1 {
+            @apply w-3/4 h-5 rounded-md bg-slate-300;
+        }
+    }
+}

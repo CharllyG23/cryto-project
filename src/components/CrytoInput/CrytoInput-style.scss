@@ -1,0 +1,46 @@
+.custom-input {
+    border-radius: 0.25rem;
+  
+    @apply border
+          border-solid
+          border-gray-300
+          bg-transparent
+          text-base
+          px-3
+          font-normal
+          transition-all
+          duration-200
+          w-full;
+  
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-color: #8396e9;
+    }
+  
+    &.borderless {
+      @apply border-transparent;
+    }
+  
+    &:read-only {
+      border-color: rgba(0, 0, 0, 0.1) !important;
+      @apply cursor-not-allowed bg-gray-200 text-gray-500;
+    }
+  }
+  
+  .crytoInput {
+    @apply relative;
+  
+    &-content {
+      .header {
+        @apply flex justify-between items-center;
+        .title {
+          @apply block text-sm font-normal text-gray-900 my-2;
+        }
+      }
+      .custom-input {
+        @apply flex-1;
+      }
+    }
+  }
+  

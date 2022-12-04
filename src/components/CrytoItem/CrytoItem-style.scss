@@ -1,0 +1,17 @@
+.crytoItem {
+    @apply flex flex-col p-4 relative w-full max-w-[310px] justify-center items-center hover:scale-105 rounded-2xl transform duration-150 bg-blue-400
+      border border-solid border-gray-200;
+      
+    &-info {
+        @apply w-full flex flex-col justify-end gap-2 items-center;
+    
+        h2 {
+        @apply text-center text-lg font-normal text-white w-full;
+        }
+    
+        p {
+        @apply text-2xl font-semibold text-blue-900;
+        }
+    }
+ }
+ 
