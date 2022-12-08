@@ -4,7 +4,7 @@
     <div class="crytoItem-info">
       <h2>Valor: {{ data.amount }}</h2>
       <h2>Seu fuso horário: ({{ formatDate.localTZ }}): {{formatDate.local}}</h2>
-      <h2>Data (UTC): {{ formatDate.utc }}</h2>
+      <!-- <h2>Data (UTC): {{ formatDate.utc }}</h2> -->
       <h2>Preço: {{ data.price }}</h2>
       <h2>Tid: {{ data.tid }}</h2>
       <div class="crytoItem-info-badge">
@@ -16,6 +16,7 @@
 <script setup>
 import { computed } from 'vue'
 import { parseFromUnix, toLocaleUTCDateString } from '../../support/utils/date-formats.js'
+
 const props = defineProps({
   data: { type: Object, default: {}},
   coin: { type: Object, default: {}}

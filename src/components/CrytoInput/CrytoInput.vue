@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { computed, toRef } from 'vue'
+import { toRef } from 'vue'
 
 const emits = defineEmits(['update:modelValue'])
 

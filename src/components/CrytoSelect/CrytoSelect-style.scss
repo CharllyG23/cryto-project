@@ -1,0 +1,43 @@
+.crytoSelect{
+    @apply relative w-full text-left;
+
+	label {
+		@apply block py-1 text-sm font-normal text-gray-700;
+	}
+
+    .btn{
+        @apply rounded justify-between items-center h-14 bg-slate-200 flex w-72 overflow-auto py-3 px-5 text-base font-semibold lg:inline-flex ;
+    }
+
+	&__content{
+		@apply absolute mt-3 p-3 overflow-y-auto shadow-xl max-h-60 w-full bg-slate-50 rounded-md z-10;
+
+		&::-webkit-scrollbar {
+			@apply w-2 bg-transparent;
+
+			&-track {
+				@apply bg-neutral-200 rounded;
+			}
+
+			&-thumb {
+				@apply bg-slate-300 rounded;
+			}
+		}
+
+		&--options{
+			@apply mb-1 p-2 hover:bg-slate-100 hover:rounded cursor-pointer;
+		}
+	}
+
+	.selectHide {
+		display: none;
+	  }
+
+	&__icon {
+		transition: transform 0.2s;
+	
+		&--rotate-180 {
+		  transform: rotate(180deg);
+		}
+	}
+}

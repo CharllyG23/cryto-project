@@ -12,6 +12,7 @@
             @apply grid sm:grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-x-10 gap-y-10;
         }
     }
+
     &-button {
         @apply inline-flex items-center justify-center;
         button{
@@ -19,4 +20,18 @@
         }
     }
   }
+
+    &-filters{
+        @apply flex justify-around items-center;
+        &--inputs{
+            @apply flex items-center mb-14  gap-6;
+        }
+
+        &--button{
+            @apply pt-9;
+            .btn{
+                @apply w-40 h-14 bg-slate-900 cursor-pointer text-white text-lg font-semibold rounded-lg;
+            }
+        }
+    }
 }
