@@ -1,12 +1,12 @@
 .crytoSelect{
     @apply relative w-full text-left;
 
-	label {
-		@apply block py-1 text-sm font-normal text-gray-700;
+	span {
+		@apply block py-1 text-lg font-bold text-gray-700;
 	}
 
     .btn{
-        @apply rounded justify-between items-center h-14 bg-slate-200 flex w-72 overflow-auto py-3 px-5 text-base font-semibold lg:inline-flex ;
+        @apply rounded justify-between items-center h-14 bg-slate-200 flex w-72 py-3 px-5 text-base font-semibold lg:inline-flex ;
     }
 
 	&__content{

@@ -2,9 +2,9 @@
   <div class="crytoItem">
     <h1>{{ coin.name }}</h1>
     <div class="crytoItem-info">
-      <h2>Valor: {{ data.amount }}</h2>
+      <h2>Quantidade: {{ data.amount }}</h2>
       <h2>Horário Hoje: {{formatDate.local}}</h2>
-      <h2>Preço: {{ data.price }}</h2>
+      <h2>Preço: {{ formatValueToShow(data.price) }}</h2>
       <div class="crytoItem-info-badge">
         <p>Tipo: {{ data.type }}</p>
       </div>
@@ -14,6 +14,7 @@
 <script setup>
 import { computed } from 'vue'
 import { parseFromUnix, toLocaleUTCDateString } from '../../support/utils/date-formats.js'
+import { formatValueToShow } from '../../support/utils/currency-conversion'
 
 const props = defineProps({
   data: { type: Object, default: {}},
@@ -28,10 +29,11 @@ const formatDate = computed(() => {
 
   const dateUnix = parseFromUnix(date)
   const local = dateUnix.toLocaleTimeString("default")
-	return { local }
+  const utc = toLocaleUTCDateString(dateUnix, 'pt')
+	return { local, utc }
 })
 
 </script>
 <style lang="scss" scoped>
-@import './CrytoItem-style.scss';
+@import './CryptoItem-style.scss';
 </style>

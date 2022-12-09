@@ -1,6 +1,6 @@
 <template>
     <div>
-        <cryto-select 
+        <crypto-select 
             :options="TRADE_COINS" 
             :value-selected="coin" 
             @onSelected="filterSelected" 
@@ -8,8 +8,9 @@
     </div>
 </template>
 <script setup>
-import CrytoSelect from '../CrytoSelect/CrytoSelect.vue';
+import CryptoSelect from '../CryptoSelect/CryptoSelect.vue';
 import { TRADE_COINS } from '../../support/utils/coins.js'
+import { onBeforeUpdate, onMounted, onUpdated } from 'vue'
 
 const emits = defineEmits(['filter-seleted'])
 
@@ -23,5 +24,4 @@ const props = defineProps({
 const filterSelected = (value) => {
     emits('filter-seleted', value) 
 }
-
 </script>

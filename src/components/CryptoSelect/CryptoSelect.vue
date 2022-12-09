@@ -5,7 +5,7 @@
                 class="btn"
                 @click="open = !open"
             >   
-                {{ selected.name  }} ({{ selected.key }})
+               <span> {{ selected.name  }} ({{ selected.key }})</span>
                 <SvgAngle
                     class="crytoSelect__icon"
                     :class="{ 'crytoSelect__icon--rotate-180': open }"
@@ -31,7 +31,7 @@ import { directive } from 'vue3-click-away'
 import SvgAngle from './SvgAngle.vue'
 
 export default {
-	name: 'cryto-select',
+	name: 'crypto-select',
 
     emits: ['on-selected'],
 
@@ -83,5 +83,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import './CrytoSelect-style.scss';
+@import './CryptoSelect-style.scss';
 </style>

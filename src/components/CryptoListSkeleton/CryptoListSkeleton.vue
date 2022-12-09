@@ -9,5 +9,5 @@
   </div>
   </template>
   <style lang="scss" scoped>
-  @import './CrytoListSkeleton-style.scss';
+  @import './CryptoListSkeleton-style.scss';
   </style>

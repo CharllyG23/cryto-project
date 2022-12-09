@@ -61,5 +61,5 @@ const style = {
 </script>
 
 <style lang="scss" scoped>
-@import './CrytoInput-style.scss';
+@import './CryptoInput-style.scss';
 </style>
