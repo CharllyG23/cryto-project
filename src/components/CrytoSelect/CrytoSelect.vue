@@ -5,7 +5,7 @@
                 class="btn"
                 @click="open = !open"
             >   
-                {{ selected.name }}
+                {{ selected.name  }} ({{ selected.key }})
                 <SvgAngle
                     class="crytoSelect__icon"
                     :class="{ 'crytoSelect__icon--rotate-180': open }"
@@ -19,7 +19,7 @@
                 class="crytoSelect__content--options"
                 @click="isSelected(option)"
             >
-            {{ option.name }}
+            {{ option.name }} ({{ option.key }})
             </div>
         </div>  
     </div>
