@@ -1,16 +1,20 @@
 .crytoSelect{
     @apply relative w-full text-left;
 
+	label {
+		@apply block mb-2 text-sm font-normal text-gray-700;
+	}
+
 	span {
 		@apply block py-1 text-lg font-bold text-gray-700;
 	}
 
     .btn{
-        @apply rounded justify-between items-center h-14 bg-slate-200 flex w-72 py-3 px-5 text-base font-semibold lg:inline-flex ;
+        @apply rounded justify-between items-center h-14 bg-gray-100 flex w-full py-3 px-5 text-base font-semibold lg:inline-flex ;
     }
 
 	&__content{
-		@apply absolute mt-3 p-3 overflow-y-auto shadow-xl max-h-60 w-full bg-slate-50 rounded-md z-10;
+		@apply absolute mt-3 p-3 overflow-y-auto shadow-xl max-h-60 w-full bg-gray-50 rounded-md z-10;
 
 		&::-webkit-scrollbar {
 			@apply w-2 bg-transparent;

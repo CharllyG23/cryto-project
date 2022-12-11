@@ -1,16 +1,23 @@
 <template>
-  <div class="crytoItem">
-    <h1>{{ coin.name }}</h1>
-    <div class="crytoItem-info">
-      <h2>Quantidade: {{ data.amount }}</h2>
-      <h2>Horário Hoje: {{formatDate.local}}</h2>
-      <h2>Preço: {{ formatValueToShow(data.price) }}</h2>
-      <div class="crytoItem-info-badge">
-        <p>Tipo: {{ data.type }}</p>
-      </div>
-    </div>
-</div>
+	<div class="tableContent">
+		<div class="tableContent--items">
+			<div class="date">
+				<span>{{ formatDate.local }}</span>
+			</div>
+			<span class="buy">{{ formatValueToShow(data.price) }}</span>
+			<div class="partner">
+				<p>{{ coin.name }}</p><strong class="text-slate-500">{{ coin.key }}</strong>
+			</div>
+			<div class="progressContainer">
+				<p class="counter" ># {{ data.tid }}</p>
+			</div>
+			<div :class="data.type" class="status">
+				<span> {{data.type}}</span>
+			</div>
+		</div>
+	</div>
 </template>
+
 <script setup>
 import { computed } from 'vue'
 import { parseFromUnix, toLocaleUTCDateString } from '../../support/utils/date-formats.js'
@@ -29,11 +36,9 @@ const formatDate = computed(() => {
 
   const dateUnix = parseFromUnix(date)
   const local = dateUnix.toLocaleTimeString("default")
-  const utc = toLocaleUTCDateString(dateUnix, 'pt')
-	return { local, utc }
+	return { local }
 })
-
 </script>
 <style lang="scss" scoped>
-@import './CryptoItem-style.scss';
+@import './CryptoTableItem-style.scss';
 </style>

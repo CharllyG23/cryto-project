@@ -1,0 +1,72 @@
+.tableContent {
+	@apply lg:pt-6 w-full border-b lg:rounded;
+
+	&--items {
+		@apply 
+		grid
+			lg:flex
+			items-center
+			gap-y-2
+			gap-x-4
+			text-sm
+			font-medium
+			my-3
+			lg:gap-x-24
+			lg:px-8
+			text-left
+			lg:text-start;
+
+			grid-template-columns: 1fr 100px;
+
+		.date,
+		.buy {
+			@apply text-xs
+				text-gray-500
+				lg:flex-none
+				lg:w-[7.5rem]
+				lg:text-sm
+				lg:text-gray-900
+				text-left;
+		}
+
+		.buy {
+			@apply text-gray-500  lg:text-left;
+		}
+
+		.date {
+			@apply lg:text-center lg:py-2.5 lg:rounded-[.25rem] lg:bg-orange-50 text-orange-400;
+		}
+
+		.partner {
+			@apply flex items-center gap-4 lg:order-first;
+			p {
+				@apply text-base text-slate-900;
+			}
+		}
+
+		.progressContainer {
+			@apply lg:w-[7rem];
+
+			&.counter {
+				@apply lg:text-left text-sm lg:w-[7rem];;
+
+			}
+
+		}
+
+		.status {
+			@apply flex
+				items-center
+				lg:justify-center
+				lg:flex-none
+				lg:w-[6rem];
+
+				&.sell{
+					@apply font-bold text-green-500 lg:bg-teal-50 rounded py-2;
+				}
+				&.buy{
+					@apply font-bold text-sky-500 lg:bg-sky-50 rounded py-2;
+				}
+			}
+		}
+	}

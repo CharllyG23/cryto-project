@@ -1,5 +1,5 @@
 .crytoListSkeleton{
-    @apply w-full p-5 relative max-w-[300px] justify-center items-center rounded-2xl bg-slate-200 animate-pulse;
+    @apply w-full p-5 relative h-96 justify-center items-center rounded-2xl bg-slate-200 animate-pulse;
 
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 2) infinite;
 
@@ -13,7 +13,7 @@
       }
 
     &-info {
-        @apply w-full flex flex-col justify-end space-y-5 items-center;
+        @apply w-full flex flex-col p-5 justify-end space-y-16 items-center;
     
         &--title {
          @apply w-1/2 h-5 rounded-md bg-slate-300;

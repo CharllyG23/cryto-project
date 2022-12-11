@@ -1,37 +1,58 @@
 .crytoList{
   &-container{
-    @apply  bg-gray-100 w-full items-start justify-center pb-8;
+    @apply  bg-gray-100 w-full items-start justify-center pb-8 text-center;
 
     h1{
         @apply text-3xl text-slate-800 font-bold text-center justify-center pt-9;
     }
     &-content{
-        @apply px-12 py-20 max-w-7xl m-auto w-full;
+        @apply px-3 lg:px-6 py-10 max-w-6xl m-auto w-full;
 
-        &-items {
-            @apply grid sm:grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-x-10 gap-y-10;
+             &-items {
+                @apply grid
+                lg:flex
+                items-center
+                gap-y-2
+                gap-x-4
+                text-sm
+                font-medium
+                my-3
+                lg:gap-x-24
+                lg:px-8
+                text-left
+                lg:text-start;
+
+                grid-template-columns: 1fr 100px;
         }
     }
 
     &-button {
-        @apply inline-flex items-center justify-center;
+        @apply  block items-center justify-center ;
         button{
-            @apply w-40 h-14 bg-slate-900 cursor-pointer text-white text-lg font-semibold rounded-lg;
+            @apply w-40 h-14 bg-sky-400 hover:bg-sky-300 cursor-pointer text-white text-lg font-semibold rounded-md;
         }
     }
   }
 
     &-filters{
-        @apply flex justify-around items-center;
+        @apply flex-col flex lg:flex-row items-start px-6 lg:px-20;
         &--inputs{
-            @apply flex items-center mb-14  gap-6;
+            @apply lg:flex block flex-col w-full lg:flex-row items-center gap-6 flex-1 mb-0 lg:mb-6;;
         }
 
         &--button{
             @apply pt-9;
             .btn{
-                @apply w-40 h-14 bg-slate-900 cursor-pointer text-white text-lg font-semibold rounded-lg;
+                @apply block w-full lg:w-52 h-14 bg-sky-400 hover:bg-sky-300 cursor-pointer text-white text-lg font-semibold rounded-md;
             }
         }
+
+        &--select{
+            @apply lg:w-72 w-full py-12 lg:pt-2;
+        }
+    }
+
+    .cryptoTableItem{
+        @apply border rounded shadow-2xl bg-transparent bg-white lg:px-0 px-6 lg:pt-0 pt-6;
     }
 }

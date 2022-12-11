@@ -17,15 +17,6 @@
       box-shadow: none;
       border-color: #8396e9;
     }
-  
-    &.borderless {
-      @apply border-transparent;
-    }
-  
-    &:read-only {
-      border-color: rgba(0, 0, 0, 0.1) !important;
-      @apply cursor-not-allowed bg-gray-200 text-gray-500;
-    }
   }
   
   .crytoInput {

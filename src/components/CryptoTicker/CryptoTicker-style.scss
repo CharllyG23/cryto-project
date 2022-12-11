@@ -1,0 +1,21 @@
+.cryptoTicker{
+    @apply flex flex-col lg:flex-row gap-7 py-16  px-6 lg:px-20;
+
+    &__cards{
+        @apply flex w-full rounded shadow-lg h-28 lg:h-36 border p-5;
+
+        &--content{
+            @apply flex flex-col justify-center text-left;
+        }
+
+        &--header{
+            @apply inline-flex items-center gap-x-4 ;
+
+            span{
+                @apply text-lg lg:text-2xl font-bold text-slate-900;
+            }
+        }
+        
+
+    }
+}

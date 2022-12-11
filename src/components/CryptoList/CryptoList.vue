@@ -1,6 +1,6 @@
 <template>
     <div class="crytoList">
-        <crypto-ticker :coin="currentCoin"></crypto-ticker>
+        <crypto-ticker :ticker="ticker"></crypto-ticker>
        <div class="crytoList-filters">
            <div class="crytoList-filters--inputs">
                 <div>
@@ -9,28 +9,35 @@
                         label="Data de Inicio"
                         :type="'date'"
                     />
+                    
                 </div>
                 <div>
                     <crypto-input
                         v-model="toDate"
-                        label="To"
+                        label="Data Final"
                         :type="'date'"
                     />
                 </div>
                 <div class="crytoList-filters--button ">
-                    <button class="btn" @click="doSearch">Buscar</button>
+                    <button class="btn" @click="doSearch">Busca</button>
                 </div>
+                <span>{{ validationError }}</span>
            </div>
-            <crypto-filters :coin="currentCoin" @filter-seleted="filter" />
+            <div class="crytoList-filters--select">
+                <crypto-filters :coin="currentCoin" @filter-seleted="filter" />
+            </div>
        </div>
         <div class="crytoList-container">
-            <h1>Negociações em {{ currentCoin.name }}.</h1>
+            <h1>Lista de Negociação de {{ currentCoin.name }}.</h1>
             <div class="crytoList-container-content">
                 <div v-if="loading" class="crytoList-container-content-items">
-                    <crypto-list-skeleton v-for="i in perPage" :key="i" />
+                    <crypto-list-skeleton  />
                 </div>
-                <div v-else class="crytoList-container-content-items">
-                    <crypto-item v-for="(item, index) in itemsList" :key="index" :data="item" :coin="currentCoin"/>
+                <div v-if="!loading && crypto.length != 0" class="crytoList-container-content">
+                    <crypto-table-header />
+                    <div class="cryptoTableItem">
+                        <crypto-table-item  v-for="(item, index) in itemsList" :key="index" :data="item" :coin="currentCoin" />
+                    </div>
                 </div>
             </div>
             <div v-if="crypto.length === 0">
@@ -45,23 +52,26 @@
 <script setup>
 import { computed, onMounted, ref } from '@vue/runtime-core';
 import CryptoInput from '../CryptoInput/CryptoInput.vue';
-import CryptoItem from '../CryptoItem/CryptoItem.vue'
+import CryptoTableItem from '../CryptoTableItem/CryptoTableItem.vue'
 import CryptoListSkeleton from '../CryptoListSkeleton/CryptoListSkeleton.vue';
 import  api from '../../support/http/api.js'
 import { TRADE_COINS } from '../../support/utils/coins.js'
 import { parseToUnix } from '../../support/utils/date-formats'
 import CryptoFilters from '../CryptoFilters/CryptoFilters.vue';
 import CryptoTicker from '../CryptoTicker/CryptoTicker.vue';
+import CryptoTableHeader from '../CryptoTableHeader/CryptoTableHeader.vue';
 
 const crypto = ref([])
 const loading = ref(true)
 const page = ref(1)
-const perPage = 20
+const perPage = 5
 
 // Page filters
 const currentCoin = ref(TRADE_COINS[0])
 const fromDate = ref(null)
 const toDate = ref(null)
+
+const canSearch = computed(()=> validationError.value === null)
 
 const validationError = computed(() => {
     const bothAreNull = fromDate.value == null && toDate.value === null
@@ -70,12 +80,12 @@ const validationError = computed(() => {
 
     if (bothAreNull) { return null}
 
-    if(oneIsDate && !bothAreDates) {
-        return 'ambas datas tem que ser setadas.'    
+    if(oneIsDate && !oneIsDate) {
+        return 'Ambas as datas devem ser preenchidas.'
     }
 
     if (bothAreDates && fromDate.value > toDate.value) {
-        return 'from date não pode ser maior que to date.'
+        return 'A data final não deve ser posterior à data atual'
     }
 
     return null
@@ -93,6 +103,7 @@ const end = computed(() => {
 })
 
 const onSeeMore = () => page.value +=1;
+const ticker = ref({})
 
 // Request
 const fetchCryptocurrency = async ({ coinKey, from = null, to = null }) => {
@@ -127,11 +138,23 @@ const fetchCryptocurrency = async ({ coinKey, from = null, to = null }) => {
 	loading.value = false;
 }
 
+const fetchCryptoTicker =  async (coin) => {
+    const getTicker = `/${coin.key}/ticker`
+    try {
+        const response = await api.get(getTicker);
+        ticker.value = response.data
+        console.log('reponse', ticker)
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 const filter = (value) => {
     currentCoin.value = value
     fetchCryptocurrency({ coinKey: value.key })
+    fetchCryptoTicker(value)
 }
-
 
 const doSearch = () => {
     if (loading.value || !canSearch.value) return
@@ -145,6 +168,7 @@ const doSearch = () => {
 
 onMounted(() =>{
     fetchCryptocurrency({ coinKey: currentCoin.value.key })
+    fetchCryptoTicker(currentCoin.value)
 })
 </script>
 <style lang="scss" scoped>

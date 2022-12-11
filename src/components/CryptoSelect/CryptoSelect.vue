@@ -1,5 +1,6 @@
 <template>
     <div class="crytoSelect" v-click-away="onClickAway">
+        <label v-if="label" for="">{{ label }}</label>
         <div class="crytoSelect__control"> 
             <button
                 class="btn"
