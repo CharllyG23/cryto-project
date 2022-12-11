@@ -9,7 +9,6 @@
                         label="Data de Inicio"
                         :type="'date'"
                     />
-                    
                 </div>
                 <div>
                     <crypto-input
@@ -143,7 +142,6 @@ const fetchCryptoTicker =  async (coin) => {
     try {
         const response = await api.get(getTicker);
         ticker.value = response.data
-        console.log('reponse', ticker)
 
     } catch (error) {
         console.error(error);

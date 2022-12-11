@@ -1,20 +1,35 @@
 <template>
     <div>
         <div class="header">
-            <a href="#default" class="logo">Logo</a>
+           <div class="header-logo">
+                <img :src="logo" alt="Logo" />
+           </div>
+           <a href="">Github</a>
+        </div>
+        <div class="hero">
+            <div class="hero-info">
+                <div class="hero-info-content">
+                    <h1>
+                        Aqui você ganha segurança e transparência.
+                    </h1>
+                    <p>
+                        Escolha em nossa plataforma mais de 100 Criptomoedas, com operações atualizadas diariamente, só para você.
+                    </p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-content" v-html="image"></div>
+            </div>
         </div>
         <crypto-list></crypto-list>
     </div>
 </template>
 <script setup>
 import CryptoList from '../components/CryptoList/CryptoList.vue'
+import { image } from './svg.js'
+import  logo  from '../assets/img/LOGO_KHIZA_06.png'
+
 </script>
 <style lang="scss" scoped>
-.header {
-    @apply bg-gray-200 py-5 px-16;
-
-    .logo{
-        @apply font-bold text-2xl text-slate-900;
-    }
-}
+@import './CryptoPage-style.scss';
 </style>

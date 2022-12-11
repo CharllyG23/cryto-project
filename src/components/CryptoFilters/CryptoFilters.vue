@@ -3,7 +3,7 @@
         :options="TRADE_COINS" 
         :value-selected="coin" 
         @onSelected="filterSelected" 
-        :label="'Selecione outro'"
+        :label="'Selecione'"
     />
 </template>
 <script setup>

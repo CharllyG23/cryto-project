@@ -9,7 +9,7 @@ export const formatValueToShow = (pValue) => {
 	return convertNumberToShow(pValue).toLocaleString('pt-BR', {
 		style: 'currency',
 		currency: 'BRL',
-		minimumFractionDigits: 3,
-		maximumFractionDigits: 3,
+		minimumFractionDigits: 4,
+		maximumFractionDigits: 4,
 	})
 }

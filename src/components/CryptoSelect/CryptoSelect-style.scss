@@ -20,16 +20,16 @@
 			@apply w-2 bg-transparent;
 
 			&-track {
-				@apply bg-neutral-200 rounded;
+				@apply bg-neutral-100 rounded;
 			}
 
 			&-thumb {
-				@apply bg-slate-300 rounded;
+				@apply bg-slate-200 rounded;
 			}
 		}
 
 		&--options{
-			@apply mb-1 p-2 hover:bg-slate-100 hover:rounded cursor-pointer;
+			@apply mb-1 p-1 hover:bg-slate-100 hover:rounded cursor-pointer;
 		}
 	}
 
