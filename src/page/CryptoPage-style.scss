@@ -51,9 +51,9 @@
 	}
 }
 .header {
-    @apply bg-sky-400 px-5 lg:px-12 py-4 flex items-center text-white justify-between;
+    @apply bg-sky-400 px-5 lg:px-12 py-4 flex items-center text-white justify-between font-bold text-lg underline;
 
     &-logo{
-        @apply w-40;
+        @apply w-40 pr-4;
     }
 }

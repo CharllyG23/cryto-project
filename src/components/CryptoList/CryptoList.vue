@@ -20,12 +20,12 @@
                 <div class="crytoList-filters--button ">
                     <button class="btn" @click="doSearch">Busca</button>
                 </div>
-                <span>{{ validationError }}</span>
            </div>
             <div class="crytoList-filters--select">
                 <crypto-filters :coin="currentCoin" @filter-seleted="filter" />
             </div>
        </div>
+       <span class=" px-20 text-sm text-red-400 font-medium">{{ validationError }}</span>
         <div class="crytoList-container">
             <h1>Lista de Negociação de {{ currentCoin.name }}.</h1>
             <div class="crytoList-container-content">
@@ -73,7 +73,7 @@ const toDate = ref(null)
 const canSearch = computed(()=> validationError.value === null)
 
 const validationError = computed(() => {
-    const bothAreNull = fromDate.value == null && toDate.value === null
+    const bothAreNull = fromDate.value === null && toDate.value === null
     const bothAreDates = fromDate.value instanceof Date && toDate.value instanceof Date
     const oneIsDate = fromDate.value instanceof Date || toDate.value instanceof Date
 
@@ -84,7 +84,7 @@ const validationError = computed(() => {
     }
 
     if (bothAreDates && fromDate.value > toDate.value) {
-        return 'A data final não deve ser posterior à data atual'
+        return 'A data inserida está incorreta para a data atual'
     }
 
     return null

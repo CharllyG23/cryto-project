@@ -4,7 +4,7 @@
            <div class="header-logo">
                 <img :src="logo" alt="Logo" />
            </div>
-           <a href="">Github</a>
+           <a :href="gitHubUrl" target="_blank">Github</a>
         </div>
         <div class="hero">
             <div class="hero-info">
@@ -29,6 +29,7 @@ import CryptoList from '../components/CryptoList/CryptoList.vue'
 import { image } from './svg.js'
 import  logo  from '../assets/img/LOGO_KHIZA_06.png'
 
+const gitHubUrl = import.meta.env.VITE_APP_GITHUB_URL
 </script>
 <style lang="scss" scoped>
 @import './CryptoPage-style.scss';
