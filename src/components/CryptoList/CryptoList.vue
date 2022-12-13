@@ -28,11 +28,11 @@
        <span class=" px-20 text-sm text-red-400 font-medium">{{ validationError }}</span>
         <div class="crytoList-container">
             <h1>Lista de Negociação de {{ currentCoin.name }}.</h1>
-            <div class="crytoList-container-content">
-                <div v-if="loading" class="crytoList-container-content-items">
+             <div class="crytoList-container-content">
+                <div v-if="loading"  class="crytoList-container-content">
                     <crypto-list-skeleton  />
                 </div>
-                <div v-if="!loading && crypto.length != 0" class="crytoList-container-content">
+                <div v-if="loading && crypto.length != 0" class="crytoList-container-content">
                     <crypto-table-header />
                     <div class="cryptoTableItem">
                         <crypto-table-item  v-for="(item, index) in itemsList" :key="index" :data="item" :coin="currentCoin" />
@@ -49,7 +49,7 @@
     </div>
 </template>
 <script setup>
-import { computed, onMounted, ref } from '@vue/runtime-core';
+import { computed, onMounted, onUnmounted, ref } from '@vue/runtime-core';
 import CryptoInput from '../CryptoInput/CryptoInput.vue';
 import CryptoTableItem from '../CryptoTableItem/CryptoTableItem.vue'
 import CryptoListSkeleton from '../CryptoListSkeleton/CryptoListSkeleton.vue';
@@ -59,6 +59,7 @@ import { parseToUnix } from '../../support/utils/date-formats'
 import CryptoFilters from '../CryptoFilters/CryptoFilters.vue';
 import CryptoTicker from '../CryptoTicker/CryptoTicker.vue';
 import CryptoTableHeader from '../CryptoTableHeader/CryptoTableHeader.vue';
+import { useInterval } from '../../composables/use-interval'
 
 const crypto = ref([])
 const loading = ref(true)
@@ -105,7 +106,7 @@ const onSeeMore = () => page.value +=1;
 const ticker = ref({})
 
 // Request
-const fetchCryptocurrency = async ({ coinKey, from = null, to = null }) => {
+const fetchCryptocurrency = async ({ coinKey, from = null, to = null, loadingRequest = true }) => {
     const getTrades = `/:coin/trades`
     const getTradesFilterFromTo = `/:coin/trades/:from/:to`
     if (!coinKey) {
@@ -120,7 +121,7 @@ const fetchCryptocurrency = async ({ coinKey, from = null, to = null }) => {
     }
     url = url.replace(':coin', coinKey)
 
-    loading.value = true;
+    if(loadingRequest)
 
     try {
         const response = await api.get(url);
@@ -133,8 +134,7 @@ const fetchCryptocurrency = async ({ coinKey, from = null, to = null }) => {
     } catch (error) {
         console.error(error);
     }
-
-	loading.value = false;
+    if(loadingRequest);
 }
 
 const fetchCryptoTicker =  async (coin) => {
@@ -155,7 +155,7 @@ const filter = (value) => {
 }
 
 const doSearch = () => {
-    if (loading.value || !canSearch.value) return
+    if (loading || !canSearch.value) return
     page.value = 1
     fetchCryptocurrency({
         coinKey: currentCoin.value.key, 
@@ -164,10 +164,20 @@ const doSearch = () => {
     })
 }
 
-onMounted(() =>{
-    fetchCryptocurrency({ coinKey: currentCoin.value.key })
+const { start, stop } = useInterval(() => {
+     
+    fetchCryptocurrency({ coinKey: currentCoin.value.key, loadingRequest: true})
     fetchCryptoTicker(currentCoin.value)
 })
+
+onMounted(() =>{
+    start(10000, true)
+})
+
+onUnmounted(() => {
+    stop()
+})
+
 </script>
 <style lang="scss" scoped>
 @import './CryptoList-style.scss';

@@ -1,12 +1,12 @@
 .crytoList{
   &-container{
-    @apply  bg-gray-100 w-full items-start justify-center pb-8 text-center;
+    @apply  bg-gray-100  items-start justify-center pb-8 text-center;
 
     h1{
         @apply text-3xl text-slate-800 font-bold text-center justify-center pt-9;
     }
     &-content{
-        @apply px-3 lg:px-6 py-10 max-w-6xl m-auto w-full;
+        @apply  mx-auto px-4 lg:px-7 py-10 max-w-6xl m-auto w-full;
 
              &-items {
                 @apply grid
@@ -35,7 +35,7 @@
   }
 
     &-filters{
-        @apply flex-col flex lg:flex-row items-start px-6 lg:px-20;
+        @apply flex-col flex lg:flex-row items-start px-6 xl:px-20;
         &--inputs{
             @apply lg:flex block flex-col w-full lg:flex-row items-center gap-6 flex-1 mb-0 lg:mb-6;;
         }

@@ -14,7 +14,7 @@
 <script setup>
 import { computed } from 'vue';
 import { TRADE_COINS } from '../../support/utils/coins.js'
-import  {api} from '../../support/http/api.js'
+import { api } from '../../support/http/api.js'
 import { formatValueToShow } from '../../support/utils/currency-conversion'
 
 const props = defineProps({
