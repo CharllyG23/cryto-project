@@ -37,14 +37,14 @@
 			@apply lg:text-center lg:py-2.5 lg:rounded-[.25rem] lg:bg-orange-50 text-orange-400;
 		}
 
-		.partner {
+		.coin {
 			@apply flex items-center gap-4 lg:order-first;
 			p {
 				@apply text-base text-slate-900;
 			}
 		}
 
-		.progressContainer {
+		.tid {
 			@apply lg:w-[7rem];
 
 			&.counter {
@@ -55,11 +55,13 @@
 		}
 
 		.status {
-			@apply flex
+			@apply 
+				flex
+				w-full
 				items-center
 				lg:justify-center
 				lg:flex-none
-				lg:w-[6rem];
+				lg:w-[8rem];
 
 				&.sell{
 					@apply font-bold text-green-500 lg:bg-teal-50 rounded py-2;

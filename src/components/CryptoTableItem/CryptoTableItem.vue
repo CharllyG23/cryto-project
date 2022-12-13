@@ -5,10 +5,10 @@
 				<span>{{ formatDate.local }}</span>
 			</div>
 			<span class="buy">{{ formatValueToShow(data.price) }}</span>
-			<div class="partner">
+			<div class="coin w-32">
 				<p>{{ coin.name }}</p><strong class="text-slate-500">{{ coin.key }}</strong>
 			</div>
-			<div class="progressContainer">
+			<div class="tid">
 				<p class="counter" ># {{ data.tid }}</p>
 			</div>
 			<div :class="data.type" class="status">

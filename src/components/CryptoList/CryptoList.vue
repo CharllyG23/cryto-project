@@ -32,7 +32,7 @@
                 <div v-if="loading"  class="crytoList-container-content">
                     <crypto-list-skeleton  />
                 </div>
-                <div v-if="loading && crypto.length != 0" class="crytoList-container-content">
+                <div v-if="!loading && crypto.length != 0" class="crytoList-container-content">
                     <crypto-table-header />
                     <div class="cryptoTableItem">
                         <crypto-table-item  v-for="(item, index) in itemsList" :key="index" :data="item" :coin="currentCoin" />
@@ -106,7 +106,7 @@ const onSeeMore = () => page.value +=1;
 const ticker = ref({})
 
 // Request
-const fetchCryptocurrency = async ({ coinKey, from = null, to = null, loadingRequest = true }) => {
+const fetchCryptocurrency = async ({ coinKey, from = null, to = null }) => {
     const getTrades = `/:coin/trades`
     const getTradesFilterFromTo = `/:coin/trades/:from/:to`
     if (!coinKey) {
@@ -121,20 +121,20 @@ const fetchCryptocurrency = async ({ coinKey, from = null, to = null, loadingReq
     }
     url = url.replace(':coin', coinKey)
 
-    if(loadingRequest)
-
     try {
         const response = await api.get(url);
+        
         crypto.value = response.data
         crypto.value = crypto.value.sort((a, b) => {
-        if(a.date > b.date) return  -1
-        if(a.date < b.date) return 1
-        if(a.date === b.date) return 0
+            if(a.date > b.date) return  -1
+            if(a.date < b.date) return 1
+            if(a.date === b.date) return 0
     })
+        loading.value = false
+
     } catch (error) {
         console.error(error);
     }
-    if(loadingRequest);
 }
 
 const fetchCryptoTicker =  async (coin) => {
@@ -166,7 +166,7 @@ const doSearch = () => {
 
 const { start, stop } = useInterval(() => {
      
-    fetchCryptocurrency({ coinKey: currentCoin.value.key, loadingRequest: true})
+    fetchCryptocurrency({ coinKey: currentCoin.value.key})
     fetchCryptoTicker(currentCoin.value)
 })
 

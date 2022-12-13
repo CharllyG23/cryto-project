@@ -1,5 +1,5 @@
 .tableContainer {
-	@apply lg:border-r lg:border-l lg:border-t lg:rounded  bg-transparent lg:bg-white;
+	@apply lg:border-r w-full lg:border-l lg:border-t lg:rounded  bg-transparent lg:bg-white;
 
 	&--header {
 		@apply items-center
