@@ -14,7 +14,7 @@
     }
 
 	&__content{
-		@apply absolute mt-3 p-3 overflow-y-auto shadow-xl max-h-60 w-full bg-gray-50 rounded-md z-10;
+		@apply absolute mt-3 p-3 overflow-y-auto shadow-xl max-h-72  w-full bg-gray-50 rounded-md z-10;
 
 		&::-webkit-scrollbar {
 			@apply w-2 bg-transparent;

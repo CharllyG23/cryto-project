@@ -3,7 +3,7 @@ export const parseToUnix = (date) => {
 }
 
 export const parseFromUnix = (unixDate) => {
-    return new Date(unixDate *1000);
+    return new Date(unixDate * 1000);
 }
 
 export const toLocaleUTCDateString = (date, locales, options) => {

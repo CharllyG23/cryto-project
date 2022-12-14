@@ -6,7 +6,6 @@
 			max-w-7xl
 			w-full
 			pt-16
-			pb-[4.5rem]
 			lg:pb-[8.5rem]
 			lg:py-48
 			lg:text-left
@@ -52,7 +51,7 @@
 }
 .header {
     @apply bg-orange-400 px-5 lg:px-12 py-4 flex items-center text-white justify-between font-bold text-lg underline;
-
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
     &-logo{
         @apply w-40 pr-4;
     }

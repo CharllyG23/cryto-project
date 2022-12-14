@@ -71,10 +71,12 @@ const currentCoin = ref(TRADE_COINS[0])
 const fromDate = ref(null)
 const toDate = ref(null)
 
+const ticker = ref({})
+
 const canSearch = computed(()=> validationError.value === null)
 
 const validationError = computed(() => {
-    const bothAreNull = fromDate.value === null && toDate.value === null
+    const bothAreNull = fromDate.value == null && toDate.value === null
     const bothAreDates = fromDate.value instanceof Date && toDate.value instanceof Date
     const oneIsDate = fromDate.value instanceof Date || toDate.value instanceof Date
 
@@ -103,7 +105,6 @@ const end = computed(() => {
 })
 
 const onSeeMore = () => page.value +=1;
-const ticker = ref({})
 
 // Request
 const fetchCryptocurrency = async ({ coinKey, from = null, to = null }) => {
@@ -123,14 +124,14 @@ const fetchCryptocurrency = async ({ coinKey, from = null, to = null }) => {
 
     try {
         const response = await api.get(url);
-        
         crypto.value = response.data
         crypto.value = crypto.value.sort((a, b) => {
             if(a.date > b.date) return  -1
             if(a.date < b.date) return 1
             if(a.date === b.date) return 0
     })
-        loading.value = false
+      
+    loading.value = false
 
     } catch (error) {
         console.error(error);
@@ -155,7 +156,7 @@ const filter = (value) => {
 }
 
 const doSearch = () => {
-    if (loading || !canSearch.value) return
+    if (!canSearch.value) return
     page.value = 1
     fetchCryptocurrency({
         coinKey: currentCoin.value.key, 
@@ -165,7 +166,6 @@ const doSearch = () => {
 }
 
 const { start, stop } = useInterval(() => {
-     
     fetchCryptocurrency({ coinKey: currentCoin.value.key})
     fetchCryptoTicker(currentCoin.value)
 })

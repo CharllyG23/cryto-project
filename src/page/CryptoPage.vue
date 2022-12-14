@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <div class="header">
-           <div class="header-logo">
-                <img :src="logo" alt="Logo" />
-           </div>
-           <a :href="gitHubUrl" target="_blank">Github</a>
+    <div class="header ">
+        <div class="header-logo">
+            <img :src="logo" alt="Logo" />
         </div>
+         <a :href="gitHubUrl" target="_blank">Github</a>
+    </div>
+    <div>
         <div class="hero">
             <div class="hero-info">
                 <div class="hero-info-content">
