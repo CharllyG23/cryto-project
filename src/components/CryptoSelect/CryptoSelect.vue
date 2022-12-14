@@ -20,7 +20,7 @@
                 class="crytoSelect__content--options"
                 @click="isSelected(option)"
             >
-            {{ option.name }} ({{ option.key }})
+           <p> {{ option.name }} ({{ option.key }})</p>
             </div>
         </div>  
     </div>

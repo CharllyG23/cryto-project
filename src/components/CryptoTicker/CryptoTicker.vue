@@ -2,7 +2,7 @@
     <div class="cryptoTicker">
         <div class="cryptoTicker__cards " v-for="(card, i) in  formatTicker" :key="i" >
            <div class="cryptoTicker__cards--content ">
-            <h1 class="pb-4 font-bold">{{ card.title }}</h1>
+            <h1 class="pb-4 text-slate-500 font-normal">{{ card.title }}</h1>
                 <div class="cryptoTicker__cards--header">
                     <div v-html="card.svg "></div>
                     <span>{{formatValueToShow(card.currentValue) }}</span>

@@ -29,7 +29,7 @@
     &-button {
         @apply  block items-center justify-center ;
         button{
-            @apply w-40 h-14 bg-sky-400 hover:bg-sky-300 cursor-pointer text-white text-lg font-semibold rounded-md;
+            @apply w-40 h-14 bg-orange-400 hover:bg-orange-300 cursor-pointer text-white text-lg font-semibold rounded-md;
         }
     }
   }
@@ -43,7 +43,7 @@
         &--button{
             @apply pt-9;
             .btn{
-                @apply block w-full lg:w-52 h-14 bg-sky-400 hover:bg-sky-300 cursor-pointer text-white text-lg font-semibold rounded-md;
+                @apply block w-full lg:w-52 h-14 bg-orange-400 hover:bg-orange-300 cursor-pointer text-white text-lg font-semibold rounded-md;
             }
         }
 

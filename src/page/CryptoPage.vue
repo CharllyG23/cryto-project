@@ -13,7 +13,7 @@
                         Aqui você ganha segurança e transparência.
                     </h1>
                     <p>
-                        Escolha em nossa plataforma mais de 100 Criptomoedas, com operações atualizadas diariamente, só para você.
+                        Escolha em nossa plataforma mais de 100 Criptomoedas, com operações atualizadas diariamente, <strong>só para você</strong>.
                     </p>
                 </div>
             </div>

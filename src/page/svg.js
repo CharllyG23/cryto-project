@@ -4,11 +4,11 @@ export const image = `
 <style type="text/css">
 	.st0{fill:#F5F5F5;}
 	.st1{fill:#263238;}
-	.st2{fill:#27C2FF;}
+	.st2{fill:#fb923c;}
 	.st3{fill:#FFFFFF;}
 	.st4{fill:#E0E0E0;}
 	.st5{opacity:0.3;}
-	.st6{fill:#455A64;}
+	.st6{fill:#fb923c;}
 	.st7{fill:#FFBF9D;}
 	.st8{fill:#FF9A6C;}
 	.st9{fill:none;}

@@ -24,12 +24,16 @@
 			}
 
 			&-thumb {
-				@apply bg-slate-200 rounded;
+				@apply bg-gray-200 rounded;
 			}
 		}
 
+		p{
+			@apply text-sm text-slate-500;
+		}
+
 		&--options{
-			@apply mb-1 p-1 hover:bg-slate-100 hover:rounded cursor-pointer;
+			@apply mb-3 p-1 hover:bg-slate-100 hover:rounded cursor-pointer;
 		}
 	}
 
