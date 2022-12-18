@@ -1,28 +1,38 @@
 <template>
     <div class="cryptoTicker">
         <div class="cryptoTicker__cards " v-for="(card, i) in  formatTicker" :key="i" >
-           <div class="cryptoTicker__cards--content ">
-            <h1 class="pb-4 text-slate-500 font-normal">{{ card.title }}</h1>
+           <div v-if="!loadingCards" class="cryptoTicker__cards--content">
+                <h1 class="pb-4 text-slate-500 font-normal">{{ card.title }}</h1>
                 <div class="cryptoTicker__cards--header">
                     <div v-html="card.svg "></div>
-                    <span>{{formatValueToShow(card.currentValue) }}</span>
+                    <p>{{formatValueToShow(card.currentValue) }}</p>
                 </div>
            </div>
+            <div v-else class="flex justify-center items-center">
+                <crypto-spinner/>
+            </div>
         </div>
     </div>
 </template>
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { TRADE_COINS } from '../../support/utils/coins.js'
 import { api } from '../../support/http/api.js'
 import { formatValueToShow } from '../../support/utils/currency-conversion'
+import CryptoSpinner from '../CryptoSpinner/CryptoSpinner.vue';
 
 const props = defineProps({
     ticker: {
         type: Object,
-        default: {}
+        default: {},
+    },
+
+    loadingCards: {
+        type: Boolean,
+        default: false,
     }
 })
+
 
 const tickerText = computed (() => {
     let priceMax, priceLow, volumMax, currentValue = '0.00'
@@ -61,7 +71,8 @@ const formatTicker = computed (() => {
         },
     ]
     return data
-})  
+}) 
+
 </script>
 <style lang="scss" scoped>
 @import './CryptoTicker-style.scss';

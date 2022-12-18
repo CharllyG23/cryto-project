@@ -1,6 +1,6 @@
 <template>
     <div class="crytoList">
-        <crypto-ticker :ticker="ticker"></crypto-ticker>
+        <crypto-ticker :ticker="ticker" :loading-cards="loading" />
        <div class="crytoList-filters">
            <div class="crytoList-filters--inputs">
                 <div>
@@ -18,7 +18,12 @@
                     />
                 </div>
                 <div class="crytoList-filters--button ">
-                    <button class="btn" @click="doSearch">Busca</button>
+                    <button class="btn" @click="doSearch">
+                    <div class="flex justify-center items-center gap-x-5">
+                        <crypto-spinner v-if="loading" />
+                        <span class="label"> Busca</span>
+                    </div>
+                    </button>
                 </div>
            </div>
             <div class="crytoList-filters--select">
@@ -30,7 +35,7 @@
             <h1>Lista de Negociação de {{ currentCoin.name }}.</h1>
              <div class="crytoList-container-content">
                 <div v-if="loading"  class="crytoList-container-content">
-                    <crypto-list-skeleton  />
+                    <crypto-spinner/>
                 </div>
                 <div v-if="!loading && crypto.length != 0" class="crytoList-container-content">
                     <crypto-table-header />
@@ -59,6 +64,7 @@ import { parseToUnix } from '../../support/utils/date-formats'
 import CryptoFilters from '../CryptoFilters/CryptoFilters.vue';
 import CryptoTicker from '../CryptoTicker/CryptoTicker.vue';
 import CryptoTableHeader from '../CryptoTableHeader/CryptoTableHeader.vue';
+import CryptoSpinner from '../CryptoSpinner/CryptoSpinner.vue';
 import { useInterval } from '../../composables/use-interval'
 
 const crypto = ref([])
@@ -156,7 +162,7 @@ const filter = (value) => {
 }
 
 const doSearch = () => {
-    if (!canSearch.value) return
+    if (loading.value || !canSearch.value) return
     page.value = 1
     fetchCryptocurrency({
         coinKey: currentCoin.value.key, 
