@@ -1,18 +1,18 @@
 .tableContent {
-	@apply lg:pt-6 w-full border-b lg:rounded;
+	@apply pt-5  lg:py-6 w-full border-b  bg-white;
 
 	&--items {
 		@apply 
-		grid
+			grid
 			lg:flex
 			items-center
 			gap-y-2
 			gap-x-4
 			text-sm
 			font-medium
-			my-3
 			lg:gap-x-24
 			lg:px-8
+			pl-6
 			text-left
 			lg:text-start;
 

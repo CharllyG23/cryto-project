@@ -7,23 +7,6 @@
     }
     &-content{
         @apply  mx-auto px-4 lg:px-2 py-10 max-w-6xl m-auto w-full;
-
-             &-items {
-                @apply grid
-                lg:flex
-                items-center
-                gap-y-2
-                gap-x-4
-                text-sm
-                font-medium
-                my-3
-                lg:gap-x-24
-                lg:px-8
-                text-left
-                lg:text-start;
-
-                grid-template-columns: 1fr 100px;
-        }
     }
 
     &-button {

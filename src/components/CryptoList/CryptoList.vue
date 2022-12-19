@@ -35,13 +35,11 @@
             <h1>Lista de Negociação de {{ currentCoin.name }}.</h1>
              <div class="crytoList-container-content">
                 <div v-if="loading"  class="crytoList-container-content">
-                    <crypto-spinner/>
+                    <crypto-list-skeleton/>
                 </div>
                 <div v-if="!loading && crypto.length != 0" class="crytoList-container-content">
                     <crypto-table-header />
-                    <div class="cryptoTableItem">
-                        <crypto-table-item  v-for="(item, index) in itemsList" :key="index" :data="item" :coin="currentCoin" />
-                    </div>
+                    <crypto-table-item  v-for="(item, index) in itemsList" :key="index" :data="item" :coin="currentCoin"/>
                 </div>
             </div>
             <div v-if="crypto.length === 0">
@@ -157,6 +155,7 @@ const fetchCryptoTicker =  async (coin) => {
 
 const filter = (value) => {
     currentCoin.value = value
+    page.value = 1
     fetchCryptocurrency({ coinKey: value.key })
     fetchCryptoTicker(value)
 }

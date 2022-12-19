@@ -25,7 +25,7 @@ import { formatValueToShow } from '../../support/utils/currency-conversion'
 
 const props = defineProps({
   data: { type: Object, default: {}},
-  coin: { type: Object, default: {}}
+  coin: { type: Object, default: {}},
 });
 
 const formatDate = computed(() => {
