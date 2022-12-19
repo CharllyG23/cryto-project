@@ -1,6 +1,6 @@
 .crytoList{
   &-container{
-    @apply  bg-gray-100  items-start justify-center pb-8 text-center;
+    @apply  bg-gray-100  items-start justify-center pb-8 lg:pb-20 text-center;
 
     h1{
         @apply text-2xl lg:text-3xl px-5 lg:px-0 text-slate-800 font-bold text-center justify-center pt-9;

@@ -9,9 +9,7 @@
         <div class="hero">
             <div class="hero-info">
                 <div class="hero-info-content">
-                    <h1>
-                        Aqui você ganha segurança e transparência.
-                    </h1>
+                    <h1>Aqui você ganha segurança e transparência.</h1>
                     <p>
                         Escolha em nossa plataforma mais de 100 Criptomoedas, com negociações atualizadas em minutos, <strong>só para você</strong>.
                     </p>
@@ -24,6 +22,9 @@
             </div>
         </div>
         <crypto-list></crypto-list>
+    </div>
+    <div class="footer">
+     <span>Projetado e codificado por Charlly Garcia<strong> ©Copyright 2022</strong></span>
     </div>
 </template>
 <script setup>
