@@ -45,7 +45,7 @@
 		@apply relative w-full hidden lg:block h-64 sm:h-72 md:h-96 lg:absolute lg:right-0 lg:w-1/2 lg:h-full;
 
 		&-content {
-			@apply absolute inset-0 w-full h-full object-cover flex items-center;
+			@apply absolute inset-0 w-full h-full object-cover flex;
 		}
 	}
 }

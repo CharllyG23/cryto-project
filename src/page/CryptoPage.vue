@@ -18,7 +18,9 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-image-content" v-html="image"></div>
+                <div class="hero-image-content">
+                    <img :src="svgFinance" alt="Finance">
+                </div>
             </div>
         </div>
         <crypto-list></crypto-list>
@@ -26,8 +28,8 @@
 </template>
 <script setup>
 import CryptoList from '../components/CryptoList/CryptoList.vue'
-import { image } from './svg.js'
 import  logo  from '../assets/img/LOGO_KHIZA_06.png'
+import svgFinance from '../assets/img/svg-bitcoin.svg'
 
 const gitHubUrl = import.meta.env.VITE_APP_GITHUB_URL
 </script>
