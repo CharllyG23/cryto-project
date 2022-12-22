@@ -41,6 +41,7 @@
                     <crypto-table-header />
                     <crypto-table-item  v-for="(item, index) in itemsList" :key="index" :data="item" :coin="currentCoin"/>
                 </div>
+                
             </div>
             <div v-if="crypto.length === 0">
                 Nenhum resultado para <strong>{{ currentCoin.name }}!</strong>
@@ -82,11 +83,11 @@ const canSearch = computed(()=> validationError.value === null)
 const validationError = computed(() => {
     const bothAreNull = fromDate.value == null && toDate.value === null
     const bothAreDates = fromDate.value instanceof Date && toDate.value instanceof Date
-    const oneIsDate = fromDate.value instanceof Date || toDate.value instanceof Date
+    const oneIsDate = fromDate.value instanceof Date && toDate.value instanceof Date
 
     if (bothAreNull) { return null}
 
-    if(oneIsDate && !oneIsDate) {
+    if(oneIsDate) {
         return 'Ambas as datas devem ser preenchidas.'
     }
 

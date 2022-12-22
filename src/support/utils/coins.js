@@ -1,7 +1,9 @@
 const TRADE_COINS = [
     {
         key: 'BTC',
-        name: 'Bitcoin'
+        name: 'Bitcoin',
+        icon: '/src/assets/icons/bitcoin.svg'
+
     },
     {
         key: 'BCH',

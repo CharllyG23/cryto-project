@@ -1,5 +1,5 @@
 .tableContent {
-	@apply pt-5  lg:py-6 w-full border-b  bg-white;
+	@apply pt-5  lg:py-6 w-full border-b shadow-lg bg-white;
 
 	&--items {
 		@apply 
@@ -38,7 +38,7 @@
 		}
 
 		.coin {
-			@apply flex items-center gap-4 lg:order-first;
+			@apply flex items-center gap-2 lg:order-first;
 			p {
 				@apply text-sm text-slate-900;
 			}
