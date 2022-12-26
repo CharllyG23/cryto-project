@@ -1,5 +1,5 @@
 .tableContent {
-	@apply pt-5  lg:py-6 w-full border-b shadow-lg bg-white;
+	@apply pt-5 lg:py-6 w-full border-b shadow-lg bg-white;
 
 	&--items {
 		@apply 
@@ -10,7 +10,7 @@
 			gap-x-4
 			text-sm
 			font-medium
-			lg:gap-x-24
+			lg:gap-x-28
 			lg:px-8
 			pl-6
 			text-left
@@ -23,7 +23,7 @@
 			@apply text-xs
 				text-gray-500
 				lg:flex-none
-				lg:w-[7.5rem]
+				lg:w-[7rem]
 				lg:text-sm
 				lg:text-gray-900
 				text-left;
@@ -64,10 +64,10 @@
 				lg:w-[8rem];
 
 				&.sell{
-					@apply font-bold text-green-500 lg:bg-teal-50 rounded py-2;
+					@apply font-bold w-1/12 text-green-500 lg:bg-teal-50 rounded py-2;
 				}
 				&.buy{
-					@apply font-bold text-sky-500 lg:bg-sky-50 rounded py-2;
+					@apply font-bold w-1/12 text-sky-500 lg:bg-sky-50 rounded py-2;
 				}
 			}
 		}

@@ -3,16 +3,17 @@
 
 	&--header {
 		@apply items-center
-            gap-4
+			gap-4
+			gap-x-4
             py-5
-            px-8
+			lg:px-8
             font-medium
             text-sm
             border-b
             border-solid
             border-zinc-200
             hidden
-            lg:gap-x-24
+            lg:gap-x-28
             lg:flex;
 
 			p{
@@ -24,11 +25,11 @@
 		}
 
 		.md {
-			@apply w-[7rem] flex-none;
+			@apply w-[7rem] ;
 		}
 
 		.lg {
-			@apply flex-1;
+			@apply text-right w-[8rem];
 		}
 	}
 }

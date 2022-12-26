@@ -7,7 +7,7 @@
             <div class="md text-center">
                 <p>Identificador (Tid)</p>
             </div>
-            <p class="lg">Tipo de transação</p>
+            <p class="lg text-left">Tipo de transação</p>
         </div>
     </div>
 </template>
