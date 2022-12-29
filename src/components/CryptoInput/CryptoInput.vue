@@ -40,11 +40,6 @@ const props = defineProps({
 		type: String,
 		default: 'text',
 	},
-
-	readonly: {
-		type: Boolean,
-		default: false,
-	},
 })
 
 const name = toRef(props, 'name')
