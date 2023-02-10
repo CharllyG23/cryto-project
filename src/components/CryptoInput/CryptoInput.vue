@@ -10,7 +10,6 @@
 					:style="style"
 					@input="update"
 					class="custom-input"
-					:readonly="readonly"
 					:type="type"
 				/>
 			</div>
