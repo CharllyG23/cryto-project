@@ -24,7 +24,7 @@
         <crypto-list></crypto-list>
     </div>
     <div class="footer">
-     <span>Projetado e codificado por Charlly Garcia<strong> ©Copyright 2022</strong></span>
+     <span>Projetado e codificado por Charlly Garcia<strong> ©Copyright 2023</strong></span>
     </div>
 </template>
 <script setup>

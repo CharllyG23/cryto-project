@@ -87,7 +87,7 @@ const validationError = computed(() => {
 
     if (bothAreNull) { return null}
 
-    if(!oneIsDate) {
+    if(!oneIsDate && oneIsDate ) {
         return 'Ambas as datas devem ser preenchidas.'
     }
 
