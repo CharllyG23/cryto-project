@@ -29,7 +29,7 @@
 </template>
 <script setup>
 import CryptoList from '../components/CryptoList/CryptoList.vue'
-import  logo  from '../assets/img/LOGO_KHIZA_06.png'
+import  logo  from '../assets/img/logo.svg'
 import svgFinance from '../assets/img/svg-bitcoin.svg'
 
 const gitHubUrl = import.meta.env.VITE_APP_GITHUB_URL
